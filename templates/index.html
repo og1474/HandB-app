@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <title>HIT and BLOW</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>HIT and BLOW</h2>
+    <h1>HIT and BLOW</h1>
 
     <form method="POST">
-        <input type="text" maxlength="4" class="num_input" name="enter" required>
+        <input type="text" maxlength="4" class="num_input" name="enter" required autocomplete="off">
+        <button type="submit" name="action" value="check">GO</button>
     </form>
 
-    <h2>答え {{ answer }}│入力 {{ enter }}</h2>
+    {% for number,hit,blow in data %}
+        <p>{{ number }} {{ hit }}H{{ blow }}B</p>
+        {% if hit==4 %}
+            <h2>正解！</h2>
+            <br><br>
+            <form method="POST">
+                <button type="submit" name="action" value="new">NEW GAME</button>
+        {% endif %}
+    {% endfor %}
 
-<!--    <script src="script.js"></script> -->
+<!-- <h2>答え {{ answer }}</h2> -->
 </body>
