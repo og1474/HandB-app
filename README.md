@@ -16,13 +16,13 @@
 
 ## 起動方法(ローカル)
 1.必要なパッケージをインストール
-~~bash
+~~~bash
 pip install flask
-~~
+~~~
 2.実行
-~~bash
+~~~bash
 python app.py
-~~
+~~~
 
 ## 更新履歴
 詳細な更新履歴は[GitHubのコミットログ](https://github.com/og1474/handb-app/commits/master)を参照してください。
